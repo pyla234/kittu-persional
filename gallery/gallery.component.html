@@ -1,0 +1,34 @@
+<div class="clearfix">&nbsp;</div>
+<div class="clearfix">&nbsp;</div>
+<!--index of images-->
+<!--index list of  spa & wellness-->
+<div class="container-fluid">
+    <div class="row">   
+        <div *ngFor="let data of pagedItems; let i = index" class="col-md-4 col-sm-4">
+            <div class="hovereffect">
+            <img src="{{data.download_url}}" class="ServiceImages" alt="In Room Dining Food Pics" />
+            <div class="overlay">                
+                <a class="info" href="#">View Details</a>
+             </div>
+            </div>           
+            <div class="clearfix">&nbsp;</div>
+          </div>
+        </div>
+    </div>
+  <div class="clearfix">&nbsp;</div>
+<!--Pagination-->
+<div class="col-md-8">
+  <ul *ngIf="pager.pages && pager.pages.length" class="pagination upper">
+    <li class="pageItemRight" [ngClass]="{disabled:pager.currentPage === 1}">
+      <a class="page-link" aria-label="Previous" (click)="setPage(pager.currentPage - 1)"
+        style="font-size: 12px;">&#8592;&nbsp;&nbsp;&nbsp;<b>Previous</b></a>
+        <!-- ;pageChangeprev() this method put it above after click fun -->
+    </li>
+    <span class="countofPages">{{pager.currentPage}}&nbsp;&nbsp;/&nbsp;&nbsp;{{pager.totalPages}}</span>
+    <li class="pageItemLeft" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a class="page-link" aria-label="Next" (click)="setPage(pager.currentPage + 1)"
+        style="font-size: 12px;">&nbsp;&nbsp;<b>Next</b>&nbsp;&nbsp;&nbsp;&nbsp;&#8594;</a>
+        <!-- ;pageChange() this method put it above after click fun -->
+    </li>
+  </ul>
+</div>
